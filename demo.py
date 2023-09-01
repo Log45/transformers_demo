@@ -10,7 +10,7 @@ def main():
     inpt = input("Give an input for the model: ")
     
     tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = AutoModelForCausalLM.from_pretrained(model_name)
+    model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
     
     input_ids = tokenizer(inpt, return_tensors="pt").input_ids.to(device)
 
